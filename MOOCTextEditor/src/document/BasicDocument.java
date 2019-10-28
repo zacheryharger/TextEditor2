@@ -19,6 +19,7 @@ public class BasicDocument extends Document
 	}
 	
 	
+	
 	/**
 	 * Get the number of words in the document.
 	 * A "word" is defined as a contiguous string of alphabetic characters
