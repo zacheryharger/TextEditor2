@@ -157,7 +157,6 @@ public abstract class Document {
 	    // TODO: You will play with this method in week 1, and 
 		// then implement it in week 
 		score = 206.35-1.015*(calcWords/calcSent)-84.6*(calcSyll/calcWords);
-		System.out.print(score);
 	    return score;
 	}
 	

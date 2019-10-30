@@ -24,13 +24,13 @@ public class DocumentBenchmarking {
 		
 	    // The amount of characters to increment each step
 	    // You can play around with this
-		int increment = 20000;
+		int increment = 200;
 
 		// The number of steps to run.  
 		// You can play around with this.
 		int numSteps = 20;
 		
-		// THe number of characters to start with. 
+		// The number of characters to start with. <--- Quit making typos, Coursera
 		// You can play around with this.
 		int start = 50000;
 		
@@ -44,24 +44,51 @@ public class DocumentBenchmarking {
 			// file to create both a BasicDocument and an EfficientDocument.  
 			
 			/* Each time through this loop you should:
-			 * 1. Print out numToCheck followed by a tab (\t) (NOT a newline)
-			 * 2. Read numToCheck characters from the file into a String
-			 *     Hint: use the helper method below.
-			 * 3. Time a loop that runs trials times (trials is the variable above) that:
+			 * 1. Print out numToCheck followed by a tab (\t) (NOT a newline)*/
+			 //System.out.println(numToCheck + "\t" + "TEST");
+			 
+			/* 2. Read numToCheck characters from the file into a String
+			 *     Hint: use the helper method below.*/
+			 String returnedText = getStringFromFile(textfile, numToCheck);
+			/* 3. Time a loop that runs trials times (trials is the variable above) that:
 			 *     a. Creates a BasicDocument 
-			 *     b. Calls fleshScore on this document
-			 * 4. Print out the time it took to complete the loop in step 3 
+			 *     b. Calls fleschScore on this document <--- Quit making typos, Coursera */
+			 long timeInNanoBeg = System.nanoTime();
+			 for (int i = 0; i < trials; i++) {
+				BasicDocument first = new BasicDocument(returnedText);
+				 first.getFleschScore();
+			 }
+			 long timeInNanoEnd = System.nanoTime();
+			 long timeInNanoTot = timeInNanoEnd-timeInNanoBeg;
+			 System.out.print("\n" + timeInNanoTot);
+			 double timeInSeconds = ((double)timeInNanoTot/1000000000);
+			 System.out.print(" Little Spoon 1 Seconds: " + timeInSeconds + " ");
+		    /* 4. Print out the time it took to complete the loop in step 3 
 			 *      (on the same line as the first print statement) followed by a tab (\t)
+			 *      
 			 * 5. Time a loop that runs trials times (trials is the variable above) that:
 			 *     a. Creates an EfficientDocument 
-			 *     b. Calls fleshScore on this document
-			 * 6. Print out the time it took to complete the loop in step 5 
+			 *     b. Calls fleshScore on this document */
+			 long timeInNano2Beg = System.nanoTime();
+			 for (int i = 0; i<trials; i++) {
+				 BasicDocument second = new BasicDocument(returnedText);
+				 second.getFleschScore();
+			 }
+			 long timeInNano2End = System.nanoTime();
+			 long timeInNano2Tot = timeInNano2End - timeInNano2Beg;
+			 System.out.print(timeInNano2Tot);
+			 double timeInSeconds2 = ((double)timeInNano2Tot/1000000000);
+			 System.out.print(" Little Spoon 2 Seconds: " + timeInSeconds2);
+			 
+			/* 6. Print out the time it took to complete the loop in step 5 
 			 *      (on the same line as the first print statement) followed by a newline (\n) 
 			 */  
+			
 			 
 		}
 	
 	}
+	
 	
 	/** Get a specified number of characters from a text file
 	 * 

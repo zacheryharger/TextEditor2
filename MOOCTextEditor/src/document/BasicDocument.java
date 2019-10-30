@@ -38,9 +38,10 @@ public class BasicDocument extends Document
 	{
 		//TODO: Make this code include ""
 		String[] wordArray = this.text.split("[^A-Za-z]+");
-		for (int i = 0 ; i<wordArray.length ; i++) {
+		/*for (int i = 0 ; i<wordArray.length ; i++) {
 			System.out.print(wordArray[i] + "* ");
 			}
+		*/
 		int numWord = wordArray.length;
 	    return numWord;
 	}
