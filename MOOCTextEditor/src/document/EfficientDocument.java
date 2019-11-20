@@ -50,39 +50,32 @@ public class EfficientDocument extends Document {
 		// That is not a word or a sentence-ending punctuation.
 		// MAKE SURE YOU UNDERSTAND THIS LINE BEFORE YOU CODE THE REST
 		// OF THIS METHOD.
-		List<String> tokens = getTokens("[!?.]+|[a-zA-Z]+");
+		List<String> tokens = getTokens("[!?.]+|[a-zA-Z]+");	//Split test case into words and sentence-ending punctuation.
 		boolean end = true;
 		for (int i = 0; i < tokens.size();i++) {
-			boolean boolWord = isWord(tokens.get(i));
+			boolean boolWord = isWord(tokens.get(i));			//Check if token is a word.
 			
 			//System.out.print(tokens.get(i) + "* ");
-			if (boolWord) {
+			if (boolWord) { 			//Is this token a word?
 				numWords ++;
 				end = true;
 				//System.out.println(numWords);
 			}
-			else {
+			else { 						//If not, add to sentence count.
 				numSentences ++;
 				end = false;
 				//System.out.println(numSentences);
-			}	
-			
-			
-				
+			}			
+			int syll = countSyllables(tokens.get(i));
+			numSyllables += syll;
 		}
-		if (end && numWords != 0)
+		if (end && numWords != 0)		//if list ends in a word, add a sentence to sentence count.
 		{numSentences++;}
-		int syll = getNumSyllables();
+		//int syll = getNumSyllables();	//calculate syllables of each token.
+		
 		//System.out.println("Syllables: " + syll);
-		numSyllables =+ syll;
+					//add to running total of syllables.
 	}
-		//for (String word : tokens) {
-			
-		//}
-		// TODO: Finish this method.  Remember the countSyllables method from 
-		// Document.  That will come in handy here.  isWord defined above will also help.
-	
-
 	
 	/**
 	 * Get the number of sentences in the document.
@@ -99,7 +92,6 @@ public class EfficientDocument extends Document {
 	 */
 	@Override
 	public int getNumSentences() {
-		//TODO: write this method.  Hint: It's simple <-- Fake news.
 		return numSentences;
 	}
 
@@ -120,7 +112,6 @@ public class EfficientDocument extends Document {
 	 */
 	@Override
 	public int getNumWords() {
-		//TODO: write this method.  Hint: It's simple <-- Fake news.
 	    return numWords;
 	}
 
@@ -142,14 +133,7 @@ public class EfficientDocument extends Document {
 	 */
 	@Override
 	public int getNumSyllables() {
-        //TODO: write this method.  Hint: It's simple <-- Fake news.
-		List<String> tokens = getTokens("[a-zA-Z]+");
-		int totalSyllables = 0;
-		for (String word : tokens)
-		{
-			totalSyllables += countSyllables(word);
-		}
-		return totalSyllables;
+		return numSyllables;
 	}
 	
 	// Can be used for testing
@@ -172,6 +156,9 @@ public class EfficientDocument extends Document {
 		testCase(new EfficientDocument("Sentences?!"), 3, 1, 1);
 		testCase(new EfficientDocument("Lorem ipsum dolor sit amet, qui ex choro quodsi moderatius, nam dolores explicari forensibus ad."),
 		         32, 15, 1);
+		BasicDocument b = new BasicDocument("Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.");
+		double fOfB = b.getFleschScore();
+		System.out.println(fOfB);
 		
 	}
 	

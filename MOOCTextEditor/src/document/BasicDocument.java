@@ -129,8 +129,9 @@ public class BasicDocument extends Document
 		testCase(new BasicDocument("Sentences?!"), 3, 1, 1);
 		testCase(new BasicDocument("Lorem ipsum dolor sit amet, qui ex choro quodsi moderatius, nam dolores explicari forensibus ad."),
 		         32, 15, 1);
-		BasicDocument b = new BasicDocument("foo bar baz");
-		b.getFleschScore();
+		BasicDocument b = new BasicDocument("Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.");
+		double fOfB = b.getFleschScore();
+		System.out.println(fOfB);
 	}
 	
 }

@@ -153,10 +153,10 @@ public abstract class Document {
 		double calcWords = getNumWords();
 		double calcSent = getNumSentences();
 		double calcSyll = getNumSyllables();
-		double score = 0;
+		double score = 99.0;
 	    // TODO: You will play with this method in week 1, and 
 		// then implement it in week 
-		score = 206.35-1.015*(calcWords/calcSent)-84.6*(calcSyll/calcWords);
+		score = 206.835-1.015*(calcWords/calcSent)-84.6*(calcSyll/calcWords);
 	    return score;
 	}
 	

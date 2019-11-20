@@ -24,7 +24,7 @@ public class DocumentBenchmarking {
 		
 	    // The amount of characters to increment each step
 	    // You can play around with this
-		int increment = 200;
+		int increment = 10000;
 
 		// The number of steps to run.  
 		// You can play around with this.
@@ -37,6 +37,7 @@ public class DocumentBenchmarking {
 		// TODO: Fill in the rest of this method so that it runs two loops
 		// and prints out timing results as described in the assignment 
 		// instructions and following the pseudocode below.
+		System.out.println("Size" + "\t" + "Basic Document" + "\t" + "Efficient Document");
 		for (int numToCheck = start; numToCheck < numSteps*increment + start; 
 				numToCheck += increment)
 		{
@@ -60,9 +61,9 @@ public class DocumentBenchmarking {
 			 }
 			 long timeInNanoEnd = System.nanoTime();
 			 long timeInNanoTot = timeInNanoEnd-timeInNanoBeg;
-			 System.out.print("\n" + timeInNanoTot);
+			 System.out.print(numToCheck);
 			 double timeInSeconds = ((double)timeInNanoTot/1000000000);
-			 System.out.print(" Little Spoon 1 Seconds: " + timeInSeconds + " ");
+			 System.out.print("\t" + timeInSeconds);
 		    /* 4. Print out the time it took to complete the loop in step 3 
 			 *      (on the same line as the first print statement) followed by a tab (\t)
 			 *      
@@ -76,9 +77,9 @@ public class DocumentBenchmarking {
 			 }
 			 long timeInNano2End = System.nanoTime();
 			 long timeInNano2Tot = timeInNano2End - timeInNano2Beg;
-			 System.out.print(timeInNano2Tot);
 			 double timeInSeconds2 = ((double)timeInNano2Tot/1000000000);
-			 System.out.print(" Little Spoon 2 Seconds: " + timeInSeconds2);
+			 System.out.println("\t" + timeInSeconds2);
+			 
 			 
 			/* 6. Print out the time it took to complete the loop in step 5 
 			 *      (on the same line as the first print statement) followed by a newline (\n) 
