@@ -21,6 +21,7 @@ public class DocumentBenchmarking {
 
 	    // The text to test on
 	    String textfile = "data/warAndPeace.txt";
+	    
 		
 	    // The amount of characters to increment each step
 	    // You can play around with this
